@@ -18,39 +18,39 @@ namespace
 				flag_on_playlists_removed | flag_on_playlist_renamed | flag_on_playlists_reorder;
 		}
 
-		void on_item_ensure_visible(size_t playlist, size_t index) final
+		void on_item_ensure_visible(size_t playlistIndex, size_t playlistItemIndex) final
 		{
-			PanelManager::get()->notify_args(CallbackID::on_playlist_item_ensure_visible, { playlist, index });
+			PanelManager::get()->notify_args(CallbackID::on_playlist_item_ensure_visible, { playlistIndex, playlistItemIndex });
 		}
 
-		void on_item_focus_change(size_t playlist, size_t from, size_t to) final
+		void on_item_focus_change(size_t playlistIndex, size_t from, size_t to) final
 		{
-			PanelManager::get()->notify_args(CallbackID::on_item_focus_change, { playlist, from, to });
+			PanelManager::get()->notify_args(CallbackID::on_item_focus_change, { playlistIndex, from, to });
 		}
 
-		void on_items_added(size_t playlist, size_t, metadb_handle_list_cref, const pfc::bit_array&) final
+		void on_items_added(size_t playlistIndex, size_t, metadb_handle_list_cref, const pfc::bit_array&) final
 		{
-			PanelManager::get()->notify(CallbackID::on_playlist_items_added, playlist);
+			PanelManager::get()->notify(CallbackID::on_playlist_items_added, playlistIndex);
 		}
 
-		void on_items_modified(size_t playlist, const pfc::bit_array&) final
+		void on_items_modified(size_t playlistIndex, const pfc::bit_array&) final
 		{
-			PanelManager::get()->notify(CallbackID::on_playlist_items_changed, playlist);
+			PanelManager::get()->notify(CallbackID::on_playlist_items_changed, playlistIndex);
 		}
 
-		void on_items_removed(size_t playlist, const pfc::bit_array&, size_t, size_t new_count) final
+		void on_items_removed(size_t playlistIndex, const pfc::bit_array&, size_t, size_t new_count) final
 		{
-			PanelManager::get()->notify_args(CallbackID::on_playlist_items_removed, { playlist, new_count });
+			PanelManager::get()->notify_args(CallbackID::on_playlist_items_removed, { playlistIndex, new_count });
 		}
 
-		void on_items_reordered(size_t playlist, const size_t*, size_t) final
+		void on_items_reordered(size_t playlistIndex, const size_t*, size_t) final
 		{
-			PanelManager::get()->notify(CallbackID::on_playlist_items_reordered, playlist);
+			PanelManager::get()->notify(CallbackID::on_playlist_items_reordered, playlistIndex);
 		}
 
-		void on_items_replaced(size_t playlist, const pfc::bit_array&, const pfc::list_base_const_t<t_on_items_replaced_entry>&) final
+		void on_items_replaced(size_t playlistIndex, const pfc::bit_array&, const pfc::list_base_const_t<t_on_items_replaced_entry>&) final
 		{
-			PanelManager::get()->notify(CallbackID::on_playlist_items_replaced, playlist);
+			PanelManager::get()->notify(CallbackID::on_playlist_items_replaced, playlistIndex);
 		}
 
 		void on_items_selection_change(size_t, const pfc::bit_array&, const pfc::bit_array&) final
