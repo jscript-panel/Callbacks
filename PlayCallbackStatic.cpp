@@ -54,7 +54,7 @@ namespace
 
 		void on_playback_time(double time) final
 		{
-			PanelManager::get()->notify(CallbackID::on_playback_time, to_uint(time));
+			PanelManager::get()->notify(CallbackID::on_playback_time, js::to_uint(time));
 		}
 
 		void on_volume_change(float new_val) final
