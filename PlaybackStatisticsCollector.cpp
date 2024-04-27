@@ -7,7 +7,7 @@ namespace
 	public:
 		void on_item_played(metadb_handle_ptr handle) final
 		{
-			auto handles = pfc::list_single_ref_t<metadb_handle_ptr>(handle);
+			auto handles = js::pfc_list(handle);
 			PanelManager::get()->notify_handles(CallbackID::on_item_played, handles);
 		}
 	};

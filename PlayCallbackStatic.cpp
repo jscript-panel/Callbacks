@@ -22,13 +22,13 @@ namespace
 
 		void on_playback_edited(metadb_handle_ptr handle) final
 		{
-			auto handles = pfc::list_single_ref_t<metadb_handle_ptr>(handle);
+			auto handles = js::pfc_list(handle);
 			PanelManager::get()->notify_handles(CallbackID::on_playback_edited, handles);
 		}
 
 		void on_playback_new_track(metadb_handle_ptr handle) final
 		{
-			auto handles = pfc::list_single_ref_t<metadb_handle_ptr>(handle);
+			auto handles = js::pfc_list(handle);
 			PanelManager::get()->notify_handles(CallbackID::on_playback_new_track, handles);
 		}
 
