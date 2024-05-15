@@ -7,18 +7,12 @@ namespace
 	public:
 		void on_init() final
 		{
-			if (Fb::is_v2())
-			{
-				fb2k::console_manager::get()->addNotify(this);
-			}
+			fb2k::console_manager::get()->addNotify(this);
 		}
 
 		void on_quit() final
 		{
-			if (Fb::is_v2())
-			{
-				fb2k::console_manager::get()->removeNotify(this);
-			}
+			fb2k::console_manager::get()->removeNotify(this);
 		}
 
 		void onConsoleRefresh() final
