@@ -7,7 +7,7 @@ namespace
 	public:
 		void on_album_art(album_art_data_ptr) final
 		{
-			if (!Fb::get_now_playing_path().starts_with("file://"))
+			if (!Path::now_playing().starts_with("file://"))
 			{
 				PanelManager::get()->notify(CallbackID::on_playback_dynamic_info_track, 1);
 			}
