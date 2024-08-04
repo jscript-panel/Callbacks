@@ -13,7 +13,7 @@ namespace
 			}
 		}
 
-		void on_items_modified(metadb_handle_list_cref handles) final
+		void on_items_modified_v2(metadb_handle_list_cref handles, metadb_io_callback_v2_data&) final
 		{
 			PanelManager::get()->notify_handles(CallbackID::on_library_items_changed, handles, is_modified_from_hook());
 		}
@@ -31,7 +31,7 @@ namespace
 			PanelManager::get()->notify(CallbackID::on_library_initialised);
 		}
 
-		void on_items_modified_v2(metadb_handle_list_cref, metadb_io_callback_v2_data&) final {}
+		void on_items_modified(metadb_handle_list_cref) final {}
 	};
 
 	FB2K_SERVICE_FACTORY(LibraryCallback);
